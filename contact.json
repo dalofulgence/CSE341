@@ -1,0 +1,24 @@
+{
+    "contact1": {
+        "firstName": "Fulgence", 
+        "lastName": "Dalo", 
+        "email": "fulgencedalo@gmail.com", 
+        "favoriteColor": "Blue", 
+        "birthday": "09/07/1986"
+    },
+
+    "contact2": {
+        "firstName": "Ella", 
+        "lastName": "Seri", 
+        "email": "seri.michele@yahoo.com", 
+        "favoriteColor": "Green", 
+        "birthday": "02/17/1991"
+    },
+    "contact3": {
+        "firstName": "Emerauld", 
+        "lastName": "Dalo", 
+        "email": "emeraulddalo@gmail.com", 
+        "favoriteColor": "Pink", 
+        "birthday": "10/02/2014"
+    }
+}
