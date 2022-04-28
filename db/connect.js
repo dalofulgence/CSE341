@@ -10,7 +10,7 @@
 
 // const dotenv = require('dotenv');
 // dotenv.config();
-//const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.mzhuc.mongodb.net/firstDatabase?retryWrites=true&w=majority`;
+const URI = "mongodb://localhost:27017/firstDatabase";
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -23,7 +23,7 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(process.env.MONGODB_URI)
+  MongoClient.connect(URI)
     .then((client) => {
       _db = client;
       callback(null, _db);
