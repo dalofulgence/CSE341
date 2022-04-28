@@ -1,1 +1,25 @@
+
+//Get all contacts
 GET http://localhost:8080/contacts
+
+//Get contact by ID
+GET http://localhost:8080/contacts/626a0723505248baf30dcbb4
+
+
+### Create contact 
+POST http://localhost:8080/contacts HTTP/1.1 
+content-type: application/json
+
+{
+"firstName":"Stephane", "lastName":"Dalo", "email":"stephane@byui.com", "favoriteColor":"Brown", "birthday":"06/19/2000"
+}
+
+### PUT contact 
+PUT http://localhost:8080/contacts/626a0723505248baf30dcbb4 
+content-type: application/json
+
+{
+"firstName":"Mark", "lastName":"Dalo", "email":"Hello@gmail.com", "favoriteColor":"white", "birthday":"12/12/20"
+} 
+### DELETE contact 
+DELETE http://localhost:8080/contacts/626a3663fda1bcb248ba099a 
