@@ -1,23 +1,9 @@
-// const mongoose = require('mongoose');
-
-// const URI = "mongodb+srv://dalofulgence84:Gatouso84@cluster0.mzhuc.mongodb.net/firstDatabase?retryWrites=true&w=majority";
-
-// const connectDB = ()=>{
-//      mongoose.connect(URI);
-//     console.log('DB connect ...!')
-// }
-//  module.exports = connectDB;
-
-// const dotenv = require('dotenv');
-// dotenv.config();
-const URI = "mongodb://localhost:27017/firstDatabase";
-
 const dotenv = require('dotenv');
 dotenv.config();
 const MongoClient = require('mongodb').MongoClient;
 
 let _db;
-
+const URI ="mongodb+srv://dalofulgence84:Gatouso84@cluster0.mzhuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const initDb = (callback) => {
   if (_db) {
     console.log('Db is already initialized!');
@@ -42,5 +28,5 @@ const getDb = () => {
 
 module.exports = {
   initDb,
-  getDb,
+  getDb
 };

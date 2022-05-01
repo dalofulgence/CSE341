@@ -39,9 +39,10 @@ const createContact = async (req, res) => {
   }
 };
 
+//Update Contact 
 const updateContact = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  // be aware of updateOne if you only want to update specific fields
+  
   const contact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -61,6 +62,8 @@ const updateContact = async (req, res) => {
     res.status(500).json(response.error || 'Some error occurred while updating the contact.');
   }
 };
+
+//delete Contact
 
 const deleteContact = async (req, res) => {
   const userId = new ObjectId(req.params.id);
