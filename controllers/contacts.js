@@ -1,29 +1,44 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
+const apiKey =
+  '0r2oWuahAcJaJfeJBBi5XRj4djlBgyeHDEow8AD1Jf8BVWzEIqP8OWOiY6hx5t3v';
+
 const getAll = async (req, res, next) => {
-  const result = await mongodb.getDb().db().collection('contacts').find();
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
-  });
+  if (req.header('apiKey') === apiKey){
+    const result = await mongodb.getDb().db().collection('contacts').find();
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists);
+    });
+  }else {
+    res.send('Invalid apiKey, please read the documentation.');
+  }
+  
+  
 };
 
 const getSingle = async (req, res, next) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb
-    .getDb()
-    .db()
-    .collection('contacts')
-    .find({ _id: userId });
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+  if (req.header('apiKey') === apiKey){
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb
+      .getDb()
+      .db()
+      .collection('contacts')
+      .find({ _id: userId });
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
+  }else {
+    res.send('Invalid apiKey, please read the documentation.');
+  }
+  
 };
 
 // Create Contact
 const createContact = async (req, res) => {
+  
   const contact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
